@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS students (
 """
 cursor.execute(create_students_table)
 
-conn.close() 
+conn.close()
