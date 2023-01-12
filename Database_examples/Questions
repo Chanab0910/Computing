@@ -1,0 +1,9 @@
+# 1. Id, fistname, lastname, age, gender
+# 2. the first column n the table
+# 3. goes up by one automatically every time
+# 4. so that
+# 5. it auto increments
+# 6. chooses what random object it will use and it wont change
+# creates a fake name with the seed
+# 7
+
