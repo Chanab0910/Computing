@@ -35,3 +35,11 @@ FROM students
 GROUP BY gender 
 """
 age_by_gender = cursor.execute(group_by_query).fetchall()
+
+sum_age = """
+SELECT substr(firstname,1,1), sum(age)
+FROM students
+GROUP BY substr(firstname,1,1)
+"""
+age_by_fn = cursor.execute(sum_age).fetchall()
+conn.close()
