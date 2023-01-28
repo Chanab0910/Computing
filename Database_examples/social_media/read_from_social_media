@@ -1,0 +1,33 @@
+import sqlite3
+conn = sqlite3.connect("sm_app.sqlite")
+cursor = conn.cursor()
+
+select_posts = """
+SELECT title, description
+FROM posts
+"""
+
+group_by = """
+SELECT description as Post, COUNT(likes.id) as Likes
+FROM likes, posts
+WHERE posts.id = likes.post_id
+GROUP BY likes.post_id
+"""
+
+inner_join = """
+select users.name, posts.description
+from users INNER JOIN posts ON users.id = posts.user_id
+order by users.name
+"""
+
+left_join = """
+select users.name, posts.description
+from users Left Join posts ON users.id = posts.user_id
+order by users.name
+"""
+
+posts = cursor.execute(select_posts).fetchall()
+group = cursor.execute(group_by).fetchall()
+inner = cursor.execute(inner_join).fetchall()
+left = cursor.execute(left_join).fetchall()
+conn.close()
