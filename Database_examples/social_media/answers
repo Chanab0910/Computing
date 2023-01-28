@@ -1,0 +1,15 @@
+SELECT comments.text
+FRom comments
+WHERE comments.text.index(-1) ='?'
+
+UPDATE users
+SET name = 'Lizzy'
+
+SELECT users.name as Post, COUNT(comments.user_id) as Number
+FROM comments, users
+WHERE users.id = comments.user_id
+GROUP BY users.id
+
+select users.name, posts.description
+from users INNER JOIN posts ON users.id = posts.user_id
+order by users.name
